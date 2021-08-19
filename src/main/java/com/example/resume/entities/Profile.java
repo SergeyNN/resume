@@ -14,9 +14,6 @@ public class Profile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String uid;
-
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
@@ -43,8 +40,4 @@ public class Profile {
 
     @Column(columnDefinition="text")
     private String summary;
-
-//    @OneToMany()
-//    @JoinColumn(name = "profile_id")
-//    private List<Education> educations;
 }

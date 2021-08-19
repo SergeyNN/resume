@@ -8,3 +8,6 @@ spring:
       ddl-auto: update
   application:
     name: resume
+api:
+  title: Resume #наименование приложения в документации апи (swagger)
+  version: 1.0.0 #версия документации апи (swagger)
