@@ -39,9 +39,9 @@ public class SwaggerConfig {
     public Docket api() {
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(this.apiInfo())
-                .tags(
-                        new Tag("education", "Контроллер, отвечающий за образование")
-                )
+//                .tags(
+//                        new Tag("education", "Контроллер, отвечающий за образование")
+//                )
                 .select().paths(PathSelectors.any())
                 .apis(RequestHandlerSelectors.basePackage("com.example.resume.controllers"))
                 .build();
