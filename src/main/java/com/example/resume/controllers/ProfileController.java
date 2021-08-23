@@ -1,7 +1,7 @@
 package com.example.resume.controllers;
 
-import com.example.resume.entities.Education;
-import com.example.resume.service.EducationService;
+import com.example.resume.entities.Profile;
+import com.example.resume.service.ProfileService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -15,22 +15,20 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/educations")
-@Api(tags = {"education"})
-public class EducationController {
+@RequestMapping("/api/profile")
+@Api(tags = {"profile"})
+public class ProfileController {
 
-    private final EducationService educationService;
+    private final ProfileService profileService;
 
     @GetMapping("/")
-    @ApiOperation("Постраничное получение списка образования")
+    @ApiOperation("Постраничное получение списка профилей")
     @ApiResponses({
-            @ApiResponse(code = 200, message = "Список образований получен"),
+            @ApiResponse(code = 200, message = "Список профилей получен"),
             @ApiResponse(code = 401, message = "Пользователь не авторизован"),
             @ApiResponse(code = 500, message = "Возникли ошибки во время получения списка")
     })
-    public List<Education> getAllEducation() {
-        return educationService.getAllEducation();
+    public List<Profile> getAllProfiles() {
+        return profileService.getAllProfiles();
     }
-
-
 }
