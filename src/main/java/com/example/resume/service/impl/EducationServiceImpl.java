@@ -21,4 +21,14 @@ public class EducationServiceImpl implements EducationService {
     public List<Education> getAllEducation() {
         return this.educationRepository.findAll();
     }
+
+    @Override
+    public Education getEducation(Long id) {
+        return this.educationRepository.getById(id);
+    }
+
+    @Override
+    public void saveEducation(Education education) {
+        this.educationRepository.save(education);
+    }
 }
