@@ -7,4 +7,8 @@ import java.util.List;
 public interface EducationService {
 
     List<Education> getAllEducation();
+
+    Education getEducation(Long id);
+
+    void saveEducation(Education education);
 }

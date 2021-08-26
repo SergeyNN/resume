@@ -7,4 +7,6 @@ import java.util.List;
 public interface ProfileService {
 
     List<Profile> getAllProfiles();
+
+    void saveProfile(Profile profile);
 }

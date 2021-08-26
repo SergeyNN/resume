@@ -1,15 +1,17 @@
 package com.example.resume.controllers;
 
 import com.example.resume.entities.Education;
+import com.example.resume.model.EducationDto;
 import com.example.resume.service.EducationService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.SneakyThrows;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,5 +34,29 @@ public class EducationController {
         return educationService.getAllEducation();
     }
 
+    @GetMapping("/{id}")
+    @ApiOperation("Получение образования по ИД")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Образование получено"),
+            @ApiResponse(code = 400, message = "Ошибка валидации входных данных"),
+            @ApiResponse(code = 401, message = "Пользователь не авторизован"),
+            @ApiResponse(code = 500, message = "Возникли ошибки во время получения образования")
+    })
+    public Education getEducation(@PathVariable("id") Long id) {
+        return this.educationService.getEducation(id);
+    }
 
+    @PostMapping("/")
+    @SneakyThrows
+    @ApiOperation("Создание нового образовния")
+    @ApiResponses({
+            @ApiResponse(code = 201, message = "Образование создано"),
+            @ApiResponse(code = 400, message = "Ошибка валидации входных данных"),
+            @ApiResponse(code = 401, message = "Пользователь не авторизован"),
+            @ApiResponse(code = 500, message = "Возникли ошибки во время создания образования")
+    })
+    public Education createEducation(@RequestBody Education education) {
+        this.educationService.saveEducation(education);
+        return education;
+    }
 }

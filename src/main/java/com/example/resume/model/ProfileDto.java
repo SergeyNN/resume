@@ -1,7 +1,25 @@
 package com.example.resume.model;
 
-import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public class ProfileDto implements Serializable {
-    private static final long serialVersionUID = -8615469970698210379L;
+import javax.persistence.Column;
+
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ProfileDto {
+
+    private Long id;
+    private String firstName;
+    private String lastName;
+    private String birthDay;
+    private String phone;
+    private String email;
+    private String country;
+    private String city;
+    private String objective;
+    private String summary;
 }

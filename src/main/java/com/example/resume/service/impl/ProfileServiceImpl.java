@@ -20,4 +20,9 @@ public class ProfileServiceImpl implements ProfileService {
     public List<Profile> getAllProfiles() {
         return this.profileRepository.findAll();
     }
+
+    @Override
+    public void saveProfile(Profile profile) {
+        this.profileRepository.save(profile);
+    }
 }
